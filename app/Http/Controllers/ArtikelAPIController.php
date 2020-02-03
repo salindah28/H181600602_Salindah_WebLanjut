@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Artikel;
+use App\User;
 use Illuminate\Http\Request;
 
 class ArtikelAPIController extends Controller
@@ -14,9 +15,14 @@ class ArtikelAPIController extends Controller
      */
     public function index()
     {
-        $artikels=Artikel::all();
+        /*$artikels=Artikel::with(['kategoriArtikel','user'])->get();
 
-        return $artikels;
+        return $artikels;*/
+
+        $artikel=User::find(2)->artikels;
+
+        return $artikel;
+
     }
 
     /**
